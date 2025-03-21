@@ -1,0 +1,9 @@
+services:
+  api:
+    build: ./api
+    ports:
+      - "50032:50032"
+  token_list:
+    image: ubuntu
+    tty: true
+    stdin_open: true

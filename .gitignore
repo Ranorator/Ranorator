@@ -1,0 +1,4 @@
+.env
+voice_models/*.pth
+api/voice_models/*
+api/COEIROINK*
