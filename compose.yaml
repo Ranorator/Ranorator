@@ -2,8 +2,12 @@ services:
   api:
     build: ./api
     restart: always
+    volumes:
+      - ./api/voice_models:/app/COEIROINK_LINUX/speaker_info
   bot:
     build: ./bot
+    volumes:
+      - ./bot:/app
     env_file:
       - .env
     depends_on:
