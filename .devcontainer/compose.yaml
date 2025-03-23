@@ -6,10 +6,18 @@ services:
     volumes:
       - ..:/workspace
 
-  api:
-    build: ../api
+  coeiroink_api:
+    build: ../coeiroink_api
     volumes:
-      - ../api/voice_models:/app/COEIROINK_LINUX/speaker_info
+      - ../coeiroink_api/speaker_info:/app/COEIROINK_LINUX/speaker_info
     restart: always
     ports:
       - "8080:80"
+
+  style_bert_vits2_api:
+    build: ../style_bert_vits2_api
+    restart: always
+    volumes:
+      - ../style_bert_vits2_api/model_assets:/app/model_assets
+    ports:
+      - "8081:5000"
