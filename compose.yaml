@@ -1,9 +1,16 @@
 services:
-  api:
-    build: ./api
+  coeiroink_api:
+    build: ./coeiroink_api
     restart: always
     volumes:
-      - ./api/voice_models:/app/COEIROINK_LINUX/speaker_info
+      - ./coeiroink_api/speaker_info:/app/COEIROINK_LINUX/speaker_info
+
+  style_bert_vits2_api:
+    build: ./style_bert_vits2_api
+    restart: always
+    volumes:
+      - ./style_bert_vits2_api/model_assets:/app/model_assets
+
   bot:
     build: ./bot
     volumes:
