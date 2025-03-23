@@ -1,0 +1,15 @@
+services:
+  bot:
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - ..:/workspace
+
+  api:
+    build: ../api
+    volumes:
+      - ../api/voice_models:/app/COEIROINK_LINUX/speaker_info
+    restart: always
+    ports:
+      - "8080:80"
