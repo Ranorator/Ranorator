@@ -30,6 +30,4 @@ RUN find . -name "COEIROINK_LINUX*.zip" -print0 | xargs -0 unzip -d /app/ && \
     find . -name "COEIROINK_LINUX*.zip" -print0 | xargs -0 rm && \
     mv /app/COEIROINK_LINUX* /app/COEIROINK_LINUX
 
-COPY voice_models/ /app/COEIROINK_LINUX/speaker_info/
-
-CMD bash -c "xvfb-run --auto-servernum ./COEIROINK_LINUX/coeiroink-v2 --no-sandbox & sleep 5 && socat TCP-LISTEN:8080,fork,reuseaddr,bind=0.0.0.0 TCP:127.0.0.1:50032"
+CMD bash -c "xvfb-run --auto-servernum ./COEIROINK_LINUX/coeiroink-v2 --no-sandbox & sleep 5 && socat TCP-LISTEN:80,fork,reuseaddr,bind=0.0.0.0 TCP:127.0.0.1:50032"
