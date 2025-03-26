@@ -4,12 +4,21 @@ services:
     restart: always
     volumes:
       - ./coeiroink_api/speaker_info:/app/COEIROINK_LINUX/speaker_info
+    platform: linux/amd64
 
   style_bert_vits2_api:
     build: ./style_bert_vits2_api
     restart: always
     volumes:
       - ./style_bert_vits2_api/model_assets:/app/model_assets
+    platform: linux/amd64
+
+
+  web:
+    build: ./web
+    restart: always
+    volumes:
+      - ./web/app:/app
 
   bot:
     build: ./bot
@@ -18,5 +27,9 @@ services:
     env_file:
       - .env
     depends_on:
-      - api
+      - style_bert_vits2_api
+      - web
+      - coeiroink_api
     restart: always
+
+
