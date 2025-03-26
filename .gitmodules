@@ -1,3 +1,6 @@
 [submodule "bot"]
 	path = bot
 	url = https://github.com/REO2248/Style-Bert-VITS2-Discord-TTS.git
+[submodule "web"]
+	path = web
+	url = https://github.com/nikawamikan/RanoratorConfigApi.git

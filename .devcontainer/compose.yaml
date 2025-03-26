@@ -13,6 +13,7 @@ services:
     restart: always
     ports:
       - "8080:80"
+    platform: linux/amd64
 
   style_bert_vits2_api:
     build: ../style_bert_vits2_api
@@ -21,3 +22,12 @@ services:
       - ../style_bert_vits2_api/model_assets:/app/model_assets
     ports:
       - "8081:5000"
+    platform: linux/amd64
+
+  web:
+    build: ../web
+    restart: always
+    ports:
+      - "8082:8000"
+    volumes:
+      - ../web/app:/app
